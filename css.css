@@ -23,6 +23,8 @@ body div:nth-child(1) {
     float: left;
     margin-right: 2em;
     margin-bottom: 1em;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
 /* name */
@@ -30,12 +32,28 @@ body div:nth-child(2) {
     float: left;
     font-weight: bold;
     color: #FF4E50;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
 /* date + sha */
 body div:nth-child(3) {
     clear: left;
     font-size: 80%;
+    opacity: 0;
+}
+
+/* desc */
+body div:nth-child(4) {
+    font-size: 80%;
+    color: #FC913A;
+    opacity: 0;
+}
+
+/* diff */
+body div:nth-child(5) {
+    margin-left: 2em;
+    opacity: 0;
 }
 
 /* date */
@@ -47,13 +65,3 @@ body div:nth-child(3) span:nth-child(1) {
 body div:nth-child(3) span:nth-child(2) {
 }
 
-/* desc */
-body div:nth-child(4) {
-    font-size: 80%;
-    color: #FC913A;
-}
-
-/* diff */
-body div:nth-child(5) {
-    margin-left: 2em;
-}

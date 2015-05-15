@@ -23,12 +23,14 @@ fn main() {
         let mut data = String::new();
         File::open(file).unwrap().read_to_string(&mut data).unwrap();
 
+        let refresh_seconds = 120;
         let payload = format!(r#"
 <!DOCTYPE html>
 
 <head>
-<meta charset="utf-8"/>
-<link rel="stylesheet" type="text/css" href="css.css" />
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="{}">
+<link rel="stylesheet" type="text/css" href="css.css">
 </head>
 
 <body>
@@ -38,7 +40,8 @@ fn main() {
 {}
 
 </body>
-"#, data);
+<script type="text/javascript" src="js.js"></script>
+"#, refresh_seconds, data);
         
         let mime_type: Mime = "text/html".parse().ok().unwrap();
 
@@ -51,6 +54,16 @@ fn main() {
         File::open("css.css").unwrap().read_to_string(&mut payload).unwrap();
         
         let mime_type: Mime = "text/css".parse().ok().unwrap();
+        
+        Ok(Response::with((status::Ok, payload)).set(mime_type))
+    });
+
+    router.get("/js.js", move |_: &mut Request| {
+
+        let mut payload = String::new();
+        File::open("js.js").unwrap().read_to_string(&mut payload).unwrap();
+        
+        let mime_type: Mime = "application/javascript".parse().ok().unwrap();
         
         Ok(Response::with((status::Ok, payload)).set(mime_type))
     });
