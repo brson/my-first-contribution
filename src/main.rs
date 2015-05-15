@@ -23,7 +23,7 @@ fn main() {
         let mut data = String::new();
         File::open(file).unwrap().read_to_string(&mut data).unwrap();
 
-        let refresh_seconds = 120;
+        let refresh_seconds = 45;
         let payload = format!(r#"
 <!DOCTYPE html>
 

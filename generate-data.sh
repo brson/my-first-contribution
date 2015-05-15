@@ -19,7 +19,7 @@ echo "$authors" | while read author; do
 	git -C "$git_dir" log "$commit"  -n1 --format="$format" --date=short > "$out_dir/$author"
 	echo "<div>" >> "$out_dir/$author"
 	echo "<code>" >> "$out_dir/$author"
-	git -C "$git_dir" log "$commit"  -n1 -p --format="" | tail -n +3 >> "$out_dir/$author"
+	git -C "$git_dir" log "$commit"  -n1 -p --format="" >> "$out_dir/$author"
 	echo "</code>" >> "$out_dir/$author"
 	echo "</div>" >> "$out_dir/$author"
     fi
