@@ -1,0 +1,10 @@
+[package]
+name = "my-first-contribution"
+version = "0.1.0"
+authors = ["Brian Anderson <banderson@mozilla.com>"]
+
+[dependencies]
+iron = "*"
+router = "*"
+log = "*"
+env_logger = "*"
