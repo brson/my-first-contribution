@@ -8,7 +8,7 @@ out_dir="$2"
 authors="$(git -C "$git_dir" log --format=%an | sort | uniq)"
 
 mkdir -p "$out_dir"
-rm "$out_dir"/*
+rm -f "$out_dir"/*
 
 echo "$authors" | while read author; do
     commit="$(git -C "$git_dir" log --author="$author" --format=%h | tail -n1)"
